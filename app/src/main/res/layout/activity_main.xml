@@ -5,6 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent" android:layout_height="match_parent"
         tools:context=".MainActivity">
+    <Switch
+            android:text="回声消除开关"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/audioSwitch"
+            tools:layout_editor_absoluteY="16dp"
+            tools:layout_editor_absoluteX="25dp" />
 
     <android.support.v7.widget.AppCompatButton
             android:id="@+id/recode"
@@ -12,8 +19,7 @@
             android:layout_height="wrap_content"
             android:text="录音"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-    />
+            app:layout_constraintTop_toBottomOf="@+id/audioSwitch" />
 
     <android.support.v7.widget.AppCompatButton
             android:id="@+id/stopRecode"
@@ -29,9 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/recode"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="播放"
-    />
+            app:layout_constraintTop_toTopOf="@+id/recode"
+            android:text="播放" />
 
     <android.support.v7.widget.AppCompatButton
             android:id="@+id/stopPlay"
@@ -41,4 +46,8 @@
             app:layout_constraintStart_toEndOf="@+id/stopRecode"
             app:layout_constraintTop_toTopOf="@+id/stopRecode"
     />
+
+
+
+
 </android.support.constraint.ConstraintLayout>

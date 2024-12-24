@@ -7,6 +7,7 @@ public class AudioEngine {
     private boolean enableSystemAEC = true;
     private boolean hasInit;
     private AudioCore audioCore;
+    private Context context;
 
     public static AudioEngine getInstance() {
         return AudioEngineHandle.INSTANCE;
@@ -40,6 +41,7 @@ public class AudioEngine {
     }
 
     public AudioEngine init(Context context) {
+        context = context;
         return init(context, null, Frequency.PCM_8K);
     }
 
@@ -105,11 +107,13 @@ public class AudioEngine {
 
     public AudioEngine disableSystemAEC() {
         enableSystemAEC = false;
+        audioCore = new AudioCore(context.getApplicationContext(), null, Frequency.PCM_8K, Frequency.PCM_8K.value() / 10, enableSystemAEC);
         return this;
     }
 
     public AudioEngine enableSystemAEC() {
         enableSystemAEC = true;
+        audioCore = new AudioCore(context.getApplicationContext(), null, Frequency.PCM_8K, Frequency.PCM_8K.value() / 10, enableSystemAEC);
         return this;
     }
 
