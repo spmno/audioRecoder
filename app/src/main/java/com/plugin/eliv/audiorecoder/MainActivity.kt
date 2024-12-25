@@ -1,12 +1,14 @@
 package com.plugin.eliv.audiorecoder
 
 import android.content.pm.PackageManager
+import android.media.audiofx.AcousticEchoCanceler
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.plugin.eliv.recoderlibrary.AudioEngine
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_CODE = 1024
@@ -42,6 +44,13 @@ class MainActivity : AppCompatActivity() {
 
         stopPlay.setOnClickListener {
             AudioEngine.getInstance().stopPlay()
+        }
+
+        apiSupport.setOnClickListener {
+            if (AcousticEchoCanceler.isAvailable())
+                Toast.makeText(this, "支持", Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(this, "不支持", Toast.LENGTH_SHORT).show()
         }
     }
 

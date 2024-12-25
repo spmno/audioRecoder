@@ -47,6 +47,15 @@
             app:layout_constraintTop_toTopOf="@+id/stopRecode"
     />
 
+    <android.support.v7.widget.AppCompatButton
+            android:id="@+id/apiSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API支持"
+            app:layout_constraintStart_toEndOf="@+id/stopPlay"
+            app:layout_constraintTop_toTopOf="@+id/stopPlay"
+            />
+
 
 
 
